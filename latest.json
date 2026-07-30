@@ -1,0 +1,10 @@
+{
+  "current": "v1",
+  "version": "1.0",
+  "releaseNotes": [
+    "Initial DisneyOS installer",
+    "Apple Shortcuts installation",
+    "Disney Mode configuration",
+    "DisneyOS Home Screen setup"
+  ]
+}

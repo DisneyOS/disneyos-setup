@@ -1,0 +1,20 @@
+window.DISNEYOS_CONFIG = Object.freeze({
+  setupVersion: "1.0",
+  latestVersion: "1.0",
+  appUrl: "https://disneyos.github.io/",
+  setupUrl: "https://disneyos.github.io/disneyos-setup/",
+  storageKey: "disneyosSetupState",
+  completionKey: "disneyosSetupComplete",
+  releaseNotes: [
+    "Initial DisneyOS installer",
+    "Apple Shortcuts installation",
+    "Disney Mode configuration",
+    "DisneyOS Home Screen setup"
+  ],
+  shortcuts: [
+    { id:"parkVehicle", name:"Park Vehicle", url:"https://www.icloud.com/shortcuts/f9847e0572a24917b84aae57822e648d" },
+    { id:"findVehicle", name:"Find Vehicle", url:"https://www.icloud.com/shortcuts/a8f6dc7968254ea3af3915eca805069b" },
+    { id:"vehicle", name:"Vehicle", url:"https://www.icloud.com/shortcuts/6e2851c13836416f8e264b0c8e35b478" },
+    { id:"waitTimes", name:"Wait Times", url:"https://www.icloud.com/shortcuts/28ee4d7f0aac47c1bd1147a7178b02fa" }
+  ]
+});
