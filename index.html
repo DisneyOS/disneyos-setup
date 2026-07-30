@@ -295,23 +295,236 @@
         >
           <div class="screen-content">
             <p class="eyebrow">DisneyOS Web App</p>
-
+        
             <h2 id="installTitle">
               Add DisneyOS to your iPhone
             </h2>
-
+        
             <p class="screen-description">
-              DisneyOS installs directly from Safari and opens like a
-              standalone app.
+              DisneyOS installs directly from Safari and opens from your Home
+              Screen like a standalone app.
             </p>
-
-            <div class="placeholder-card">
-              <p>
-                Detailed Safari installation instructions and the live
-                DisneyOS launch button will appear here.
-              </p>
+        
+            <div
+              class="browser-notice"
+              id="browserNotice"
+              hidden
+            >
+              <div class="notice-icon" aria-hidden="true">!</div>
+        
+              <div>
+                <h3>Open this page in Safari</h3>
+                <p>
+                  Apple only provides the full Add to Home Screen installation
+                  option from Safari on iPhone.
+                </p>
+              </div>
             </div>
-
+        
+            <div class="install-launch-card">
+              <div class="install-launch-brand">
+                <img
+                  src="assets/branding/disneyos-mark.png"
+                  alt=""
+                >
+        
+                <div>
+                  <span class="install-card-label">Official Web App</span>
+                  <h3>DisneyOS</h3>
+                  <p>Open the live Disney Command Center in Safari.</p>
+                </div>
+              </div>
+        
+              <a
+                class="primary-button install-launch-button"
+                href="https://disneyos.github.io/"
+                target="_blank"
+                rel="noopener"
+              >
+                <span>Open DisneyOS</span>
+        
+                <svg
+                  class="button-icon"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M14 5h5v5M10 14l9-9M19 13v6H5V5h6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
+        
+            <div class="install-instructions">
+              <article class="instruction-step">
+                <div class="instruction-number">1</div>
+        
+                <div class="instruction-content">
+                  <h3>Open DisneyOS in Safari</h3>
+        
+                  <p>
+                    Tap <strong>Open DisneyOS</strong> above. Make sure the site
+                    opens in Safari rather than an in-app browser.
+                  </p>
+        
+                  <div class="instruction-visual safari-visual">
+                    <div class="mock-browser-bar">
+                      <span class="mock-browser-lock">●</span>
+                      <span>disneyos.github.io</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+        
+              <article class="instruction-step">
+                <div class="instruction-number">2</div>
+        
+                <div class="instruction-content">
+                  <h3>Tap the Share button</h3>
+        
+                  <p>
+                    In Safari, tap the Share icon at the bottom of the screen.
+                  </p>
+        
+                  <div class="instruction-action">
+                    <svg
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 3v12M8 7l4-4 4 4M5 11v8h14v-8"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+        
+                    <span>Share</span>
+                  </div>
+                </div>
+              </article>
+        
+              <article class="instruction-step">
+                <div class="instruction-number">3</div>
+        
+                <div class="instruction-content">
+                  <h3>Select Add to Home Screen</h3>
+        
+                  <p>
+                    Scroll through the Share menu and choose
+                    <strong>Add to Home Screen</strong>.
+                  </p>
+        
+                  <div class="instruction-menu-item">
+                    <span class="menu-item-icon">+</span>
+        
+                    <div>
+                      <strong>Add to Home Screen</strong>
+                      <span>Create an app icon for DisneyOS</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+        
+              <article class="instruction-step">
+                <div class="instruction-number">4</div>
+        
+                <div class="instruction-content">
+                  <h3>Confirm the app</h3>
+        
+                  <p>
+                    Leave the name as <strong>DisneyOS</strong>, then tap
+                    <strong>Add</strong> in the upper-right corner.
+                  </p>
+        
+                  <div class="app-preview-card">
+                    <img
+                      src="assets/branding/apple-touch-icon.png"
+                      alt="DisneyOS app icon"
+                    >
+        
+                    <div>
+                      <strong>DisneyOS</strong>
+                      <span>disneyos.github.io</span>
+                    </div>
+        
+                    <span class="app-preview-add">Add</span>
+                  </div>
+                </div>
+              </article>
+        
+              <article class="instruction-step">
+                <div class="instruction-number">5</div>
+        
+                <div class="instruction-content">
+                  <h3>Open the installed app</h3>
+        
+                  <p>
+                    Return to your Home Screen and open DisneyOS once to verify
+                    that it launches correctly.
+                  </p>
+        
+                  <div class="installed-app-preview">
+                    <img
+                      src="assets/branding/apple-touch-icon.png"
+                      alt=""
+                    >
+        
+                    <span>DisneyOS</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+        
+            <div class="installation-confirmation">
+              <label class="confirmation-control">
+                <input
+                  type="checkbox"
+                  id="webAppInstalledCheckbox"
+                >
+        
+                <span class="confirmation-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M5 12.5l4.5 4.5L19 7.5"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+        
+                <span class="confirmation-text">
+                  <strong>DisneyOS is installed</strong>
+                  <small>
+                    I added DisneyOS to the Home Screen and confirmed that it
+                    opens.
+                  </small>
+                </span>
+              </label>
+            </div>
+        
+            <p class="install-help">
+              Having trouble?
+              <a
+                href="https://disneyos.github.io/"
+                target="_blank"
+                rel="noopener"
+              >
+                Open the DisneyOS site directly
+              </a>
+              and confirm that you are using Safari.
+            </p>
+        
             <div class="navigation-buttons">
               <button
                 class="secondary-button"
@@ -320,18 +533,19 @@
               >
                 Back
               </button>
-
+        
               <button
                 class="primary-button"
+                id="installContinueButton"
                 type="button"
                 data-next-step
+                disabled
               >
                 Continue
               </button>
             </div>
           </div>
         </section>
-
         <!-- Step 4: Shortcuts -->
         <section
           class="setup-screen"
