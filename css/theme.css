@@ -1,0 +1,32 @@
+:root {
+
+  /* DisneyOS Colors */
+
+  --dos-black: #000000;
+  --dos-surface: #0B0F17;
+  --dos-surface-2: #141B27;
+
+  --dos-blue: #126DFF;
+  --dos-cyan: #22D6FF;
+
+  --dos-gradient:
+      linear-gradient(
+          135deg,
+          #126DFF 0%,
+          #22D6FF 100%
+      );
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #B8C3D1;
+  --text-muted: #7F8DA1;
+
+  --radius-large: 28px;
+  --radius-medium: 18px;
+  --radius-small: 12px;
+
+  --shadow-glow:
+      0 0 40px rgba(34,214,255,.18);
+
+  --transition:
+      .25s ease;
+}
