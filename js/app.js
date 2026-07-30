@@ -10,12 +10,30 @@
   const progressCount = document.getElementById("progressCount");
   const progressFill = document.getElementById("progressFill");
   const progressTrack = progressPanel?.querySelector(".progress-track");
+
   const progressSteps = Array.from(
     document.querySelectorAll("[data-progress-step]")
   );
 
-  const restartButton = document.getElementById("restartSetupButton");
-  const launchButton = document.getElementById("launchDisneyOSButton");
+  const restartButton = document.getElementById(
+    "restartSetupButton"
+  );
+
+  const launchButton = document.getElementById(
+    "launchDisneyOSButton"
+  );
+
+  const webAppInstalledCheckbox = document.getElementById(
+    "webAppInstalledCheckbox"
+  );
+
+  const installContinueButton = document.getElementById(
+    "installContinueButton"
+  );
+
+  const browserNotice = document.getElementById(
+    "browserNotice"
+  );
 
   const totalSteps = screens.length;
   const storageKey = "disneyos-setup-step";
@@ -30,7 +48,10 @@
       return 0;
     }
 
-    return Math.min(Math.max(parsedStep, 0), totalSteps - 1);
+    return Math.min(
+      Math.max(parsedStep, 0),
+      totalSteps - 1
+    );
   }
 
   function getStepFromHash() {
@@ -44,14 +65,20 @@
       (screen) => screen.id === hash
     );
 
-    return matchingScreen >= 0 ? matchingScreen : null;
+    return matchingScreen >= 0
+      ? matchingScreen
+      : null;
   }
 
   function getSavedStep() {
     try {
-      const savedStep = window.localStorage.getItem(storageKey);
+      const savedStep = window.localStorage.getItem(
+        storageKey
+      );
 
-      return savedStep === null ? null : clampStep(savedStep);
+      return savedStep === null
+        ? null
+        : clampStep(savedStep);
     } catch (error) {
       return null;
     }
@@ -59,9 +86,12 @@
 
   function saveStep(step) {
     try {
-      window.localStorage.setItem(storageKey, String(step));
+      window.localStorage.setItem(
+        storageKey,
+        String(step)
+      );
     } catch (error) {
-      // Setup still works when local storage is unavailable.
+      // Setup still works if local storage is unavailable.
     }
   }
 
@@ -72,16 +102,33 @@
       return;
     }
 
-    window.history.replaceState(null, "", newHash);
+    window.history.replaceState(
+      null,
+      "",
+      newHash
+    );
   }
 
   function updateProgress(step) {
+    if (
+      !progressLabel ||
+      !progressCount ||
+      !progressFill ||
+      !progressTrack
+    ) {
+      return;
+    }
+
     const activeScreen = screens[step];
+
     const stepName =
-      activeScreen.dataset.stepName || `Step ${step + 1}`;
+      activeScreen?.dataset.stepName ||
+      `Step ${step + 1}`;
 
     progressLabel.textContent = stepName;
-    progressCount.textContent = `Step ${step + 1} of ${totalSteps}`;
+
+    progressCount.textContent =
+      `Step ${step + 1} of ${totalSteps}`;
 
     const percentage =
       totalSteps <= 1
@@ -95,28 +142,39 @@
       String(step + 1)
     );
 
-    progressSteps.forEach((progressStep, index) => {
-      progressStep.classList.toggle(
-        "is-complete",
-        index < step
-      );
+    progressSteps.forEach(
+      (progressStep, index) => {
+        progressStep.classList.toggle(
+          "is-complete",
+          index < step
+        );
 
-      progressStep.classList.toggle(
-        "is-active",
-        index === step
-      );
-    });
+        progressStep.classList.toggle(
+          "is-active",
+          index === step
+        );
+      }
+    );
   }
 
   function updateChrome(step) {
     const isWelcomeScreen = step === 0;
 
-    progressPanel.hidden = isWelcomeScreen;
-    restartButton.hidden = isWelcomeScreen;
+    if (progressPanel) {
+      progressPanel.hidden = isWelcomeScreen;
+    }
+
+    if (restartButton) {
+      restartButton.hidden = isWelcomeScreen;
+    }
   }
 
-  function setScreenVisibility(screen, isVisible) {
+  function setScreenVisibility(
+    screen,
+    isVisible
+  ) {
     screen.hidden = !isVisible;
+
     screen.setAttribute(
       "aria-hidden",
       isVisible ? "false" : "true"
@@ -127,7 +185,7 @@
     requestedStep,
     options = {}
   ) {
-    if (isTransitioning) {
+    if (isTransitioning || !screens.length) {
       return;
     }
 
@@ -139,7 +197,12 @@
 
     const nextStep = clampStep(requestedStep);
 
-    if (nextStep === currentStep && screens[nextStep].classList.contains("is-active")) {
+    if (
+      nextStep === currentStep &&
+      screens[nextStep].classList.contains(
+        "is-active"
+      )
+    ) {
       updateProgress(nextStep);
       updateChrome(nextStep);
       return;
@@ -150,7 +213,11 @@
     const outgoingScreen = screens[currentStep];
     const incomingScreen = screens[nextStep];
 
-    if (animate && outgoingScreen && outgoingScreen !== incomingScreen) {
+    if (
+      animate &&
+      outgoingScreen &&
+      outgoingScreen !== incomingScreen
+    ) {
       outgoingScreen.classList.remove("is-active");
 
       await new Promise((resolve) => {
@@ -161,8 +228,15 @@
     screens.forEach((screen, index) => {
       const isIncoming = index === nextStep;
 
-      setScreenVisibility(screen, isIncoming);
-      screen.classList.toggle("is-active", isIncoming);
+      setScreenVisibility(
+        screen,
+        isIncoming
+      );
+
+      screen.classList.toggle(
+        "is-active",
+        isIncoming
+      );
     });
 
     currentStep = nextStep;
@@ -170,7 +244,7 @@
     updateProgress(currentStep);
     updateChrome(currentStep);
 
-    if (updateUrl) {
+    if (updateUrl && incomingScreen) {
       updateHash(incomingScreen.id);
     }
 
@@ -183,11 +257,19 @@
       behavior: animate ? "smooth" : "auto"
     });
 
-    const heading = incomingScreen.querySelector("h1, h2");
+    const heading = incomingScreen?.querySelector(
+      "h1, h2"
+    );
 
     if (heading) {
-      heading.setAttribute("tabindex", "-1");
-      heading.focus({ preventScroll: true });
+      heading.setAttribute(
+        "tabindex",
+        "-1"
+      );
+
+      heading.focus({
+        preventScroll: true
+      });
     }
 
     window.setTimeout(() => {
@@ -205,75 +287,152 @@
 
   function restartSetup() {
     try {
-      window.localStorage.removeItem(storageKey);
+      window.localStorage.removeItem(
+        storageKey
+      );
     } catch (error) {
       // Ignore storage errors.
     }
 
+    if (webAppInstalledCheckbox) {
+      webAppInstalledCheckbox.checked = false;
+    }
+
+    updateInstallContinueButton();
     showStep(0);
   }
 
+  function updateInstallContinueButton() {
+    if (
+      !installContinueButton ||
+      !webAppInstalledCheckbox
+    ) {
+      return;
+    }
+
+    installContinueButton.disabled =
+      !webAppInstalledCheckbox.checked;
+  }
+
+  function detectInstallationBrowser() {
+    if (!browserNotice) {
+      return;
+    }
+
+    const userAgent = navigator.userAgent;
+
+    const isIOS =
+      /iPad|iPhone|iPod/i.test(userAgent) ||
+      (
+        navigator.platform === "MacIntel" &&
+        navigator.maxTouchPoints > 1
+      );
+
+    const isSafari =
+      /Safari/i.test(userAgent) &&
+      !/CriOS|FxiOS|EdgiOS|OPiOS/i.test(
+        userAgent
+      );
+
+    browserNotice.hidden =
+      !(isIOS && !isSafari);
+  }
+
+  function bindInstallStep() {
+    if (webAppInstalledCheckbox) {
+      webAppInstalledCheckbox.addEventListener(
+        "change",
+        updateInstallContinueButton
+      );
+    }
+
+    updateInstallContinueButton();
+    detectInstallationBrowser();
+  }
+
   function bindNavigation() {
-    document.addEventListener("click", (event) => {
-      const nextButton = event.target.closest(
-        "[data-next-step]"
-      );
+    document.addEventListener(
+      "click",
+      (event) => {
+        const nextButton = event.target.closest(
+          "[data-next-step]"
+        );
 
-      if (nextButton) {
-        goToNextStep();
-        return;
+        if (nextButton) {
+          if (nextButton.disabled) {
+            return;
+          }
+
+          goToNextStep();
+          return;
+        }
+
+        const previousButton = event.target.closest(
+          "[data-previous-step]"
+        );
+
+        if (previousButton) {
+          goToPreviousStep();
+        }
       }
-
-      const previousButton = event.target.closest(
-        "[data-previous-step]"
-      );
-
-      if (previousButton) {
-        goToPreviousStep();
-      }
-    });
+    );
 
     restartButton?.addEventListener(
       "click",
       restartSetup
     );
 
-    launchButton?.addEventListener("click", () => {
-      window.location.href = "https://disneyos.github.io/";
-    });
-
-    window.addEventListener("hashchange", () => {
-      const hashStep = getStepFromHash();
-
-      if (hashStep !== null && hashStep !== currentStep) {
-        showStep(hashStep, {
-          updateUrl: false
-        });
+    launchButton?.addEventListener(
+      "click",
+      () => {
+        window.location.href =
+          "https://disneyos.github.io/";
       }
-    });
+    );
 
-    document.addEventListener("keydown", (event) => {
-      const activeElement = document.activeElement;
-      const isTyping =
-        activeElement &&
-        (
-          activeElement.tagName === "INPUT" ||
-          activeElement.tagName === "TEXTAREA" ||
-          activeElement.isContentEditable
-        );
+    window.addEventListener(
+      "hashchange",
+      () => {
+        const hashStep = getStepFromHash();
 
-      if (isTyping) {
-        return;
+        if (
+          hashStep !== null &&
+          hashStep !== currentStep
+        ) {
+          showStep(hashStep, {
+            updateUrl: false
+          });
+        }
       }
+    );
 
-      if (event.key === "ArrowRight") {
-        goToNextStep();
-      }
+    document.addEventListener(
+      "keydown",
+      (event) => {
+        const activeElement =
+          document.activeElement;
 
-      if (event.key === "ArrowLeft") {
-        goToPreviousStep();
+        const isTyping =
+          activeElement &&
+          (
+            activeElement.tagName === "INPUT" ||
+            activeElement.tagName === "TEXTAREA" ||
+            activeElement.isContentEditable
+          );
+
+        if (isTyping) {
+          return;
+        }
+
+        if (event.key === "ArrowRight") {
+          goToNextStep();
+        }
+
+        if (event.key === "ArrowLeft") {
+          goToPreviousStep();
+        }
       }
-    });
+    );
   }
 
   function initialize() {
@@ -282,6 +441,7 @@
     }
 
     bindNavigation();
+    bindInstallStep();
 
     const hashStep = getStepFromHash();
     const savedStep = getSavedStep();
@@ -296,10 +456,18 @@
     currentStep = initialStep;
 
     screens.forEach((screen, index) => {
-      const isInitial = index === initialStep;
+      const isInitial =
+        index === initialStep;
 
-      setScreenVisibility(screen, isInitial);
-      screen.classList.toggle("is-active", isInitial);
+      setScreenVisibility(
+        screen,
+        isInitial
+      );
+
+      screen.classList.toggle(
+        "is-active",
+        isInitial
+      );
     });
 
     updateProgress(initialStep);
