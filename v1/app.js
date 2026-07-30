@@ -18,18 +18,34 @@
   function updateAvailable(){ return complete() && state.completedVersion && state.completedVersion !== C.latestVersion; }
   function progress(step){ return ({install:20,shortcuts:40,focus:60,homescreen:80,wallpaper:100})[step] || 0; }
 
+  function previousStep(step){
+    return ({
+      install:"welcome",
+      shortcuts:"install",
+      focus:"shortcuts",
+      homescreen:"focus",
+      wallpaper:"homescreen"
+    })[step] || "welcome";
+  }
+
   function shell({step,title,copy,body,label="Continue",disabled=false,next}){
     app.innerHTML=`<section class="screen card flow">
-      <header class="topbar"><div class="progress-track"><div class="progress-fill" style="width:${progress(step)}%"></div></div></header>
+      <header class="topbar">
+        <button id="back" class="back-button" type="button" aria-label="Go back">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg>
+        </button>
+        <div class="progress-track"><div class="progress-fill" style="width:${progress(step)}%"></div></div>
+      </header>
       <div class="flow-body"><p class="eyebrow">DisneyOS Setup</p><h2>${title}</h2><p class="flow-copy">${copy}</p>${body}</div>
       <div class="actions bottom-actions"><button id="continue" class="button button-primary" ${disabled?"disabled":""}>${label}</button></div>
     </section>`;
+    document.getElementById("back")?.addEventListener("click",()=>goto(previousStep(step)));
     document.getElementById("continue")?.addEventListener("click", next);
   }
 
   function welcome(){
     app.innerHTML=`<section class="screen card center">
-      <img src="assets/logo.svg" class="brand-logo" alt="DisneyOS">
+      <img src="assets/disneyos-logo-transparent.png" class="brand-logo" alt="DisneyOS">
       <h1>Welcome to DisneyOS</h1>
       <p class="subtitle">Transform your iPhone into the ultimate Disney companion.</p>
       <div class="feature-grid"><div class="feature-chip">DisneyOS</div><div class="feature-chip">Apple Shortcuts</div><div class="feature-chip">Disney Mode</div><div class="feature-chip">DisneyOS Home Screen</div></div>
@@ -97,14 +113,14 @@
 
   function finish(){ state.completedVersion=C.latestVersion; state.step="complete"; localStorage.setItem(C.completionKey,"true"); save(); render(); }
   function completion(){
-    app.innerHTML=`<section class="screen card center"><div class="success-mark">✓</div><p class="eyebrow">Setup Complete</p><h1>DisneyOS is Ready</h1><p class="subtitle">Your iPhone is now configured with DisneyOS.</p><div class="actions" style="width:100%;margin-top:34px"><button id="launch" class="button button-primary">Launch DisneyOS</button><button id="again" class="button button-secondary">Run Setup Again</button></div><div class="footer-note">DisneyOS Setup v${C.setupVersion}</div></section>`;
+    app.innerHTML=`<section class="screen card center"><img src="assets/disneyos-mark.png" class="completion-logo" alt="DisneyOS"><div class="success-mark">✓</div><p class="eyebrow">Setup Complete</p><h1>DisneyOS is Ready</h1><p class="subtitle">Your iPhone is now configured with DisneyOS.</p><div class="actions" style="width:100%;margin-top:34px"><button id="launch" class="button button-primary">Launch DisneyOS</button><button id="again" class="button button-secondary">Run Setup Again</button></div><div class="footer-note">DisneyOS Setup v${C.setupVersion}</div></section>`;
     document.getElementById("launch").onclick=()=>location.href=C.appUrl;
     document.getElementById("again").onclick=resetDialog;
   }
 
   function returning(){
     const upd=updateAvailable();
-    app.innerHTML=`<section class="screen card center"><img src="assets/logo.svg" class="brand-logo" alt="DisneyOS"><p class="eyebrow">${upd?"Update Available":"Setup Complete"}</p><h1>${upd?"Update DisneyOS":"DisneyOS is already configured"}</h1><p class="subtitle">${upd?"A newer DisneyOS setup version is available.":"Your setup has already been completed on this iPhone."}</p>
+    app.innerHTML=`<section class="screen card center"><img src="assets/disneyos-logo-transparent.png" class="brand-logo" alt="DisneyOS"><p class="eyebrow">${upd?"Update Available":"Setup Complete"}</p><h1>${upd?"Update DisneyOS":"DisneyOS is already configured"}</h1><p class="subtitle">${upd?"A newer DisneyOS setup version is available.":"Your setup has already been completed on this iPhone."}</p>
       ${upd?`<div class="release-card"><div class="version-grid"><div class="version-item"><span>Current Version</span><strong>${state.completedVersion||C.setupVersion}</strong></div><div class="version-item"><span>Latest Version</span><strong>${C.latestVersion}</strong></div></div><h3>What's New</h3><ul class="release-notes">${C.releaseNotes.map(x=>`<li>${x}</li>`).join("")}</ul></div>`:""}
       <div class="actions" style="width:100%;margin-top:28px"><button id="launch" class="button button-primary">Launch DisneyOS</button><button id="secondary" class="button button-secondary">${upd?"Update DisneyOS":"Run Setup Again"}</button></div><div class="footer-note">DisneyOS Setup v${C.setupVersion}</div></section>`;
     document.getElementById("launch").onclick=()=>location.href=C.appUrl;
