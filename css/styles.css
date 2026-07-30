@@ -590,6 +590,462 @@ h3 {
   line-height: 1.65;
 }
 
+/* DisneyOS installation step */
+
+.browser-notice {
+  margin-top: 26px;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 14px;
+  align-items: start;
+  border: 1px solid rgba(255, 190, 92, 0.2);
+  border-radius: var(--radius-medium);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 174, 66, 0.11),
+      rgba(255, 255, 255, 0.025)
+    );
+}
+
+.notice-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #110b00;
+  background: #ffbf5f;
+  font-weight: 900;
+}
+
+.browser-notice h3 {
+  margin: 0;
+}
+
+.browser-notice p {
+  margin: 5px 0 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.install-launch-card {
+  margin-top: 28px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border: 1px solid rgba(34, 214, 255, 0.16);
+  border-radius: var(--radius-medium);
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(34, 214, 255, 0.1),
+      transparent 45%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(18, 109, 255, 0.08),
+      rgba(255, 255, 255, 0.025)
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 18px 48px rgba(0, 0, 0, 0.18);
+}
+
+.install-launch-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.install-launch-brand img {
+  width: 58px;
+  height: 58px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 18px rgba(34, 214, 255, 0.18));
+}
+
+.install-card-label {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--dos-cyan);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.install-launch-brand h3 {
+  font-size: 1.1rem;
+}
+
+.install-launch-brand p {
+  margin: 5px 0 0;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.install-launch-button {
+  flex: 0 0 auto;
+  margin-top: 0;
+  text-decoration: none;
+}
+
+.install-instructions {
+  margin-top: 28px;
+  display: grid;
+  gap: 14px;
+}
+
+.instruction-step {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.085);
+  border-radius: var(--radius-medium);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.046),
+      rgba(255, 255, 255, 0.022)
+    );
+}
+
+.instruction-number {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  background: var(--dos-gradient);
+  font-size: 0.9rem;
+  font-weight: 900;
+  box-shadow: 0 0 18px rgba(34, 214, 255, 0.2);
+}
+
+.instruction-content h3 {
+  margin: 1px 0 0;
+}
+
+.instruction-content > p {
+  margin: 7px 0 0;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.instruction-visual,
+.instruction-action,
+.instruction-menu-item,
+.app-preview-card {
+  margin-top: 16px;
+}
+
+.instruction-visual {
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.mock-browser-bar {
+  min-height: 44px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 13px;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.075);
+  font-size: 0.84rem;
+  font-weight: 650;
+}
+
+.mock-browser-lock {
+  color: #4fd384;
+  font-size: 0.6rem;
+}
+
+.instruction-action {
+  width: fit-content;
+  min-height: 48px;
+  padding: 0 17px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(34, 214, 255, 0.16);
+  border-radius: 14px;
+  color: var(--text-primary);
+  background: rgba(34, 214, 255, 0.065);
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
+.instruction-action svg {
+  width: 22px;
+  height: 22px;
+  color: var(--dos-cyan);
+}
+
+.instruction-menu-item {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  border: 1px solid rgba(255, 255, 255, 0.085);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.menu-item-icon {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  color: white;
+  background: rgba(18, 109, 255, 0.88);
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.instruction-menu-item div {
+  min-width: 0;
+}
+
+.instruction-menu-item strong,
+.instruction-menu-item span {
+  display: block;
+}
+
+.instruction-menu-item span {
+  margin-top: 3px;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.app-preview-card {
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) auto;
+  gap: 13px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.085);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.app-preview-card img {
+  width: 48px;
+  height: 48px;
+  border-radius: 11px;
+}
+
+.app-preview-card strong,
+.app-preview-card span {
+  display: block;
+}
+
+.app-preview-card div span {
+  margin-top: 4px;
+  color: var(--text-muted);
+  font-size: 0.77rem;
+}
+
+.app-preview-add {
+  color: var(--dos-cyan);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.installed-app-preview {
+  width: 98px;
+  margin-top: 16px;
+  padding: 14px 10px;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  border-radius: 17px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18, 109, 255, 0.09),
+      rgba(255, 255, 255, 0.035)
+    );
+}
+
+.installed-app-preview img {
+  width: 62px;
+  height: 62px;
+  border-radius: 14px;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
+}
+
+.installed-app-preview span {
+  color: var(--text-primary);
+  font-size: 0.75rem;
+  font-weight: 650;
+}
+
+.installation-confirmation {
+  margin-top: 24px;
+}
+
+.confirmation-control {
+  position: relative;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 14px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.095);
+  border-radius: var(--radius-medium);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.052),
+      rgba(255, 255, 255, 0.025)
+    );
+  cursor: pointer;
+  transition:
+    border-color var(--transition),
+    background var(--transition),
+    transform var(--transition);
+}
+
+.confirmation-control:hover {
+  border-color: rgba(34, 214, 255, 0.24);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(34, 214, 255, 0.075),
+      rgba(255, 255, 255, 0.025)
+    );
+}
+
+.confirmation-control:active {
+  transform: scale(0.995);
+}
+
+.confirmation-control input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.confirmation-box {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 9px;
+  color: transparent;
+  background: rgba(255, 255, 255, 0.035);
+  transition:
+    color var(--transition),
+    border-color var(--transition),
+    background var(--transition),
+    box-shadow var(--transition);
+}
+
+.confirmation-box svg {
+  width: 20px;
+  height: 20px;
+}
+
+.confirmation-control input:checked + .confirmation-box {
+  color: white;
+  border-color: transparent;
+  background: var(--dos-gradient);
+  box-shadow: 0 0 18px rgba(34, 214, 255, 0.3);
+}
+
+.confirmation-control input:focus-visible + .confirmation-box {
+  outline: 3px solid rgba(34, 214, 255, 0.62);
+  outline-offset: 4px;
+}
+
+.confirmation-text strong,
+.confirmation-text small {
+  display: block;
+}
+
+.confirmation-text small {
+  margin-top: 4px;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.install-help {
+  margin: 17px 0 0;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.install-help a {
+  color: var(--dos-cyan);
+  font-weight: 700;
+}
+
+.primary-button:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.primary-button:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Install page responsive */
+
+@media (max-width: 640px) {
+  .install-launch-card {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .install-launch-button {
+    width: 100%;
+  }
+
+  .instruction-step {
+    grid-template-columns: 32px 1fr;
+    gap: 13px;
+    padding: 17px;
+  }
+
+  .instruction-number {
+    width: 32px;
+    height: 32px;
+  }
+
+  .app-preview-card {
+    grid-template-columns: 44px minmax(0, 1fr) auto;
+  }
+
+  .app-preview-card img {
+    width: 44px;
+    height: 44px;
+  }
+}
+
 /* Finish */
 
 .finish-screen .screen-content {
