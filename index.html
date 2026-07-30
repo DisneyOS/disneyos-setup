@@ -546,6 +546,7 @@
             </div>
           </div>
         </section>
+        
         <!-- Step 4: Shortcuts -->
         <section
           class="setup-screen"
@@ -557,23 +558,266 @@
         >
           <div class="screen-content">
             <p class="eyebrow">Apple Shortcuts</p>
-
+        
             <h2 id="shortcutsTitle">
               Install your DisneyOS tools
             </h2>
-
+        
             <p class="screen-description">
-              Install each shortcut so the complete DisneyOS system
-              works correctly.
+              Install all four shortcuts below. The Vehicle shortcut depends on
+              Park Vehicle and Find Vehicle, so all three must be installed.
             </p>
-
-            <div class="placeholder-card">
-              <p>
-                Wait Times, Vehicle, Park Vehicle, and Find Vehicle
-                installation cards will appear here.
-              </p>
+        
+            <div class="shortcut-dependency-notice">
+              <div class="notice-icon" aria-hidden="true">i</div>
+        
+              <div>
+                <h3>Keep the shortcut names unchanged</h3>
+                <p>
+                  DisneyOS calls these shortcuts by name. Do not rename them
+                  during installation.
+                </p>
+              </div>
             </div>
-
+        
+            <div class="shortcut-list">
+        
+              <article class="shortcut-card">
+                <div class="shortcut-card-header">
+                  <div class="shortcut-icon">
+                    <span aria-hidden="true">⏱</span>
+                  </div>
+        
+                  <div class="shortcut-card-copy">
+                    <span class="shortcut-category">Park Information</span>
+                    <h3>Wait Times</h3>
+                    <p>
+                      Select a Disney park and quickly view current attraction
+                      wait times.
+                    </p>
+                  </div>
+                </div>
+        
+                <a
+                  class="primary-button shortcut-install-button"
+                  href="https://www.icloud.com/shortcuts/28ee4d7f0aac47c1bd1147a7178b02fa"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Install Wait Times
+                </a>
+        
+                <label class="confirmation-control shortcut-confirmation">
+                  <input
+                    type="checkbox"
+                    class="shortcut-installed-checkbox"
+                    data-shortcut-confirmation
+                  >
+        
+                  <span class="confirmation-box" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M5 12.5l4.5 4.5L19 7.5"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+        
+                  <span class="confirmation-text">
+                    <strong>Wait Times installed</strong>
+                    <small>
+                      I added the shortcut and kept its original name.
+                    </small>
+                  </span>
+                </label>
+              </article>
+        
+              <article class="shortcut-card shortcut-card-featured">
+                <div class="shortcut-card-header">
+                  <div class="shortcut-icon">
+                    <span aria-hidden="true">🚗</span>
+                  </div>
+        
+                  <div class="shortcut-card-copy">
+                    <span class="shortcut-category">Main Vehicle Tool</span>
+                    <h3>Vehicle</h3>
+                    <p>
+                      The main DisneyOS vehicle menu for saving and locating
+                      your parked vehicle.
+                    </p>
+                  </div>
+                </div>
+        
+                <div class="shortcut-requirement">
+                  Requires Park Vehicle and Find Vehicle
+                </div>
+        
+                <a
+                  class="primary-button shortcut-install-button"
+                  href="https://www.icloud.com/shortcuts/6e2851c13836416f8e264b0c8e35b478"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Install Vehicle
+                </a>
+        
+                <label class="confirmation-control shortcut-confirmation">
+                  <input
+                    type="checkbox"
+                    class="shortcut-installed-checkbox"
+                    data-shortcut-confirmation
+                  >
+        
+                  <span class="confirmation-box" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M5 12.5l4.5 4.5L19 7.5"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+        
+                  <span class="confirmation-text">
+                    <strong>Vehicle installed</strong>
+                    <small>
+                      I added the shortcut and kept its original name.
+                    </small>
+                  </span>
+                </label>
+              </article>
+        
+              <article class="shortcut-card">
+                <div class="shortcut-card-header">
+                  <div class="shortcut-icon">
+                    <span aria-hidden="true">📍</span>
+                  </div>
+        
+                  <div class="shortcut-card-copy">
+                    <span class="shortcut-category">Vehicle Component</span>
+                    <h3>Park Vehicle</h3>
+                    <p>
+                      Saves the current parking location for use by the Vehicle
+                      shortcut.
+                    </p>
+                  </div>
+                </div>
+        
+                <a
+                  class="primary-button shortcut-install-button"
+                  href="https://www.icloud.com/shortcuts/f9847e0572a24917b84aae57822e648d"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Install Park Vehicle
+                </a>
+        
+                <label class="confirmation-control shortcut-confirmation">
+                  <input
+                    type="checkbox"
+                    class="shortcut-installed-checkbox"
+                    data-shortcut-confirmation
+                  >
+        
+                  <span class="confirmation-box" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M5 12.5l4.5 4.5L19 7.5"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+        
+                  <span class="confirmation-text">
+                    <strong>Park Vehicle installed</strong>
+                    <small>
+                      I added the shortcut and kept its original name.
+                    </small>
+                  </span>
+                </label>
+              </article>
+        
+              <article class="shortcut-card">
+                <div class="shortcut-card-header">
+                  <div class="shortcut-icon">
+                    <span aria-hidden="true">🧭</span>
+                  </div>
+        
+                  <div class="shortcut-card-copy">
+                    <span class="shortcut-category">Vehicle Component</span>
+                    <h3>Find Vehicle</h3>
+                    <p>
+                      Opens navigation back to the parking location saved by
+                      Park Vehicle.
+                    </p>
+                  </div>
+                </div>
+        
+                <a
+                  class="primary-button shortcut-install-button"
+                  href="https://www.icloud.com/shortcuts/a8f6dc7968254ea3af3915eca805069b"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Install Find Vehicle
+                </a>
+        
+                <label class="confirmation-control shortcut-confirmation">
+                  <input
+                    type="checkbox"
+                    class="shortcut-installed-checkbox"
+                    data-shortcut-confirmation
+                  >
+        
+                  <span class="confirmation-box" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M5 12.5l4.5 4.5L19 7.5"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+        
+                  <span class="confirmation-text">
+                    <strong>Find Vehicle installed</strong>
+                    <small>
+                      I added the shortcut and kept its original name.
+                    </small>
+                  </span>
+                </label>
+              </article>
+        
+            </div>
+        
+            <div class="shortcut-completion-summary">
+              <div>
+                <span class="shortcut-summary-label">Installation progress</span>
+                <strong id="shortcutCompletionCount">0 of 4 installed</strong>
+              </div>
+        
+              <div class="shortcut-summary-track" aria-hidden="true">
+                <div
+                  class="shortcut-summary-fill"
+                  id="shortcutCompletionFill"
+                ></div>
+              </div>
+            </div>
+        
             <div class="navigation-buttons">
               <button
                 class="secondary-button"
@@ -582,18 +826,19 @@
               >
                 Back
               </button>
-
+        
               <button
                 class="primary-button"
+                id="shortcutsContinueButton"
                 type="button"
                 data-next-step
+                disabled
               >
                 Continue
               </button>
             </div>
           </div>
         </section>
-
         <!-- Step 5: Disney Mode -->
         <section
           class="setup-screen"
