@@ -1,6 +1,6 @@
 window.DISNEYOS_CONFIG = Object.freeze({
-  setupVersion: "1.0",
-  latestVersion: "1.0",
+  setupVersion: "1.0.1",
+  latestVersion: "1.0.1",
   appUrl: "https://disos.app/",
   setupUrl: "https://disos.app/disneyos-setup/",
   storageKey: "disneyosSetupState",
